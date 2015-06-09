@@ -10,6 +10,6 @@ namespace Assets.Scripts.Game.Creatables
     interface ICreator
     {
         IEnumerator Run();
-        Creatable Create();
+        void Create();
     }
 }
