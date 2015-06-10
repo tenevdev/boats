@@ -9,5 +9,8 @@ namespace Assets.Scripts.Game.Core
     {
         int HitPoints { get; set; }
         void ReceiveHit(Hittable hitter);
+        event HitReceivedEventHandler HitReceived;
     }
+
+    public delegate void HitReceivedEventHandler(Hittable sender, HitEventArgs args);
 }

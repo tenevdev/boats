@@ -8,27 +8,70 @@ namespace Assets.Scripts.Game.Core
 {
     public class Hittable : Movable, IHittable, IHitter
     {
-        public int HitPoints { get; set; }
-        public int HitPower { get; set; }
+        protected int startHitPoints;
+
+        public int hitPoints;
+        public int hitPower;
+
+        public int HitPoints
+        {
+            get
+            {
+                return this.hitPoints;
+            }
+            set
+            {
+                this.hitPoints = value;
+            }
+        }
+        public int HitPower
+        {
+            get
+            {
+                return this.hitPower;
+            }
+            set
+            {
+                this.hitPower = value;
+            }
+        }
+
+        public void Start()
+        {
+            base.Start();
+            this.startHitPoints = this.HitPoints;
+        }
 
         public void ReceiveHit(Hittable hitter)
         {
             // Receive damage from hit object
             this.HitPoints -= hitter.HitPower;
 
+            // Raise hit event
+            OnHitReceived(new HitEventArgs(this.startHitPoints, this.HitPoints));
+
             if (this.HitPoints <= 0)
             {
+                // Raise dead event
                 OnDead(new KilledEventArgs(hitter));
             }
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            Hittable hitter = collision.gameObject.GetComponent<Hittable>();
-
-            if (hitter != null)
+            if (collision.gameObject.CompareTag("Obstacle"))
             {
-                this.ReceiveHit(hitter);
+                this.ReceiveHit(collision.gameObject.GetComponent<Hittable>());
+            }
+        }
+
+
+        public event HitReceivedEventHandler HitReceived;
+        protected virtual void OnHitReceived(HitEventArgs e)
+        {
+            if (HitReceived != null)
+            {
+                HitReceived(this, e);
             }
         }
     }

@@ -8,6 +8,11 @@ namespace Assets.Scripts.Game.Core
 {
     public class Movable : MonoBehaviour, IMovable
     {
+        public void Start()
+        {
+            this.Dead += this.Destroy;
+        }
+
         public void OnBecameInvisible()
         {
             this.Destroy(this, new DeadEventArgs(DeadReason.OutOfScene));
