@@ -15,27 +15,24 @@ namespace Assets.Scripts.Game.Waves
         private SurfaceEffector2D surfaceEffector;
 
         public float expansion = 0.6f;
+        public float dispersion = 3f;
 
         // Use this for initialization
         public void Start()
         {
             this.surfaceEffector = this.GetComponent<SurfaceEffector2D>();
-
-            this.Expansion = expansion * 10;
         }
-
-        public float Expansion { get; set; }
 
         // Update is called once per frame
         public void FixedUpdate()
         {
-            if (this.transform.localScale.x > 8)
+            if (this.transform.localScale.x > dispersion)
             {
                 Destroy(this.gameObject);
             }
             else
             {
-                this.transform.localScale += new Vector3(this.surfaceEffector.speed / this.Expansion, this.surfaceEffector.speed / this.Expansion, 0);
+                this.transform.localScale += new Vector3(this.surfaceEffector.speed * this.expansion, this.surfaceEffector.speed * this.expansion, 0);
             }
         }
     }
