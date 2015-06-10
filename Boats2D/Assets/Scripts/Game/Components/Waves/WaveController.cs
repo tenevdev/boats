@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts.Game.Waves
+namespace Assets.Scripts.Game.Components
 {
     /// <summary>
     /// Create waves based on user input

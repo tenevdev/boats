@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Assets.Scripts.Game.Waves
+namespace Assets.Scripts.Game.Components
 {
     /// <summary>
     /// Used to control the expansion and force of a wave game object

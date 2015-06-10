@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Assets.Scripts.Game.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Creatables
+namespace Assets.Scripts.Game.Components
 {
     public abstract class SpawnerBase : MonoBehaviour, ICreator
     {

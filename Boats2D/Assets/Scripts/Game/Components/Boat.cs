@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Creatables
+namespace Assets.Scripts.Game.Components
 {
     public class Boat : Creatable
     {
