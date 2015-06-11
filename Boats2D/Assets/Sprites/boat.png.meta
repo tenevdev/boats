@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 39f1a5d3c6fa3cc47af81d5ef646604d
-timeCreated: 1433920092
+timeCreated: 1434011087
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,30 @@ TextureImporter:
     21300026: boat_up_2
     21300028: boat_up_3
     21300030: boat_up_4
+    21300032: boat_0
+    21300034: boat_1
+    21300036: boat_2
+    21300038: boat_3
+    21300040: boat_4
+    21300042: boat_5
+    21300044: boat_6
+    21300046: boat_7
+    21300048: boat_8
+    21300050: boat_9
+    21300052: boat_10
+    21300054: boat_11
+    21300056: boat_12
+    21300058: boat_13
+    21300060: boat_14
+    21300062: boat_15
+    21300064: boat_16
+    21300066: boat_17
+    21300068: boat_18
+    21300070: boat_19
+    21300072: boat_20
+    21300074: boat_21
+    21300076: boat_22
+    21300078: boat_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,165 +89,245 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: boat_down_1
+    - name: boat_0
       rect:
         serializedVersion: 2
         x: 44
-        y: 384
+        y: 896
         width: 44
         height: 89
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_left_1
+    - name: boat_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 896
+        width: 44
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 896
+        width: 44
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_3
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 896
+        width: 44
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_4
       rect:
         serializedVersion: 2
         x: 7
-        y: 274
+        y: 786
         width: 95
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_right_1
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 146
-        width: 94
-        height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_up_1
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 45
-        height: 95
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_down_2
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 384
-        width: 44
-        height: 89
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_down_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 384
-        width: 44
-        height: 89
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_down_4
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 384
-        width: 44
-        height: 89
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_left_2
+    - name: boat_5
       rect:
         serializedVersion: 2
         x: 135
-        y: 274
+        y: 786
         width: 95
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_left_3
+    - name: boat_6
       rect:
         serializedVersion: 2
         x: 263
-        y: 274
+        y: 786
         width: 95
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_left_4
+    - name: boat_7
       rect:
         serializedVersion: 2
         x: 391
-        y: 274
+        y: 786
         width: 95
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_right_2
+    - name: boat_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 658
+        width: 94
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_9
       rect:
         serializedVersion: 2
         x: 155
-        y: 146
+        y: 658
         width: 94
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_right_3
+    - name: boat_10
       rect:
         serializedVersion: 2
         x: 283
-        y: 146
+        y: 658
         width: 94
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_right_4
+    - name: boat_11
       rect:
         serializedVersion: 2
         x: 411
-        y: 146
+        y: 658
         width: 94
         height: 47
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_up_2
+    - name: boat_12
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 512
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_13
       rect:
         serializedVersion: 2
         x: 172
-        y: 0
+        y: 512
         width: 45
         height: 95
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_up_3
+    - name: boat_14
       rect:
         serializedVersion: 2
         x: 300
-        y: 0
+        y: 512
         width: 45
         height: 95
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: boat_up_4
+    - name: boat_15
       rect:
         serializedVersion: 2
         x: 428
-        y: 0
+        y: 512
         width: 45
         height: 95
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_16
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 384
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_17
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 391
+        width: 45
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_18
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 405
+        width: 45
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_19
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 439
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_20
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 256
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_21
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 254
+        width: 45
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 256
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boat_23
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 255
+        width: 45
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

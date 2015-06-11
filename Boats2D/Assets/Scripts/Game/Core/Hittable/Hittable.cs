@@ -36,25 +36,19 @@ namespace Assets.Scripts.Game.Core
             }
         }
 
-        public void Start()
+        public override void Start()
         {
             base.Start();
             this.startHitPoints = this.HitPoints;
         }
 
-        public void ReceiveHit(Hittable hitter)
+        public virtual void ReceiveHit(Hittable hitter)
         {
             // Receive damage from hit object
             this.HitPoints -= hitter.HitPower;
 
             // Raise hit event
-            OnHitReceived(new HitEventArgs(this.startHitPoints, this.HitPoints));
-
-            if (this.HitPoints <= 0)
-            {
-                // Raise dead event
-                OnDead(new KilledEventArgs(hitter));
-            }
+            OnHitReceived(new HitEventArgs(this.startHitPoints, this.HitPoints, hitter));
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
@@ -72,7 +66,16 @@ namespace Assets.Scripts.Game.Core
             if (HitReceived != null)
             {
                 HitReceived(this, e);
+                if (e.HitPointsLeft <= 0)
+                {
+                    PreDead(e);
+                }
             }
+        }
+
+        protected virtual void PreDead(HitEventArgs args)
+        {
+            OnDead(new KilledEventArgs(args.Hitter));
         }
     }
 }

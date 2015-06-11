@@ -8,7 +8,7 @@ namespace Assets.Scripts.Game.Core
 {
     public class Movable : MonoBehaviour, IMovable
     {
-        public void Start()
+        public virtual void Start()
         {
             this.Dead += this.Destroy;
         }
