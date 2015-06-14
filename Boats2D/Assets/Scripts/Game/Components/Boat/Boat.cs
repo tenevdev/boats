@@ -23,7 +23,17 @@ namespace Assets.Scripts.Game.Components
                 this.hitPointsBar = this.GetComponentInChildren<HitPointsBar>();
             }
 
+            // Increment passenger count
+
             this.HitReceived += this.hitPointsBar.UpdateBar;
+        }
+
+        public override void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Obstacle"))
+            {
+                base.OnCollisionEnter2D(collision);
+            }
         }
 
         protected override void PreDead(HitEventArgs args)

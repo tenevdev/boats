@@ -30,7 +30,7 @@ namespace Assets.Scripts.Helpers
             {
                 for (int x = 0; x < xRepeats; x++)
                 {
-                    Vector3 position = new Vector3(x * spriteSize.x, y * spriteSize.y, 0);
+                    Vector3 position = new Vector3(x * spriteSize.x, -y * spriteSize.y, 0);
                     child = Instantiate(childPrefab) as GameObject;
                     child.transform.parent = this.transform;
                     Debug.Log("Parent " + child.transform.position);

@@ -51,9 +51,9 @@ namespace Assets.Scripts.Game.Core
             OnHitReceived(new HitEventArgs(this.startHitPoints, this.HitPoints, hitter));
         }
 
-        public void OnCollisionEnter2D(Collision2D collision)
+        public virtual void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Obstacle"))
+            if (collision.collider.tag != "Wave")
             {
                 this.ReceiveHit(collision.gameObject.GetComponent<Hittable>());
             }
