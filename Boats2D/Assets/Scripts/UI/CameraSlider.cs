@@ -14,12 +14,12 @@ namespace Assets.Scripts.UI
 
             if (direction == SlideDirection.Left)
             {
-                targetPosition = startPosition - new Vector3(36, 0, -10);
+                targetPosition = startPosition - new Vector3(50, 0, 0);
 
             }
             else
             {
-                targetPosition = startPosition + new Vector3(36, 0, -10);
+                targetPosition = startPosition + new Vector3(50, 0, 0);
             }
 
             for (float i = 0; i < fps; i++)

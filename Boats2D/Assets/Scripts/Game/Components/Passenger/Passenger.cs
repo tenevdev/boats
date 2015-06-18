@@ -51,6 +51,7 @@ namespace Assets.Scripts.Game.Components
         public Vector2 movementSpeed;
         public float waitingTime;
         public string destination = "BottomShore";
+        public string origin = "TopShore";
 
         public override void Start()
         {
@@ -66,7 +67,7 @@ namespace Assets.Scripts.Game.Components
         public void OnTriggerEnter2D(Collider2D collider)
         {
             // Check if the passenger has reached a shore
-            if (collider.tag == "TopShore")
+            if (collider.tag == this.origin)
             {
                 this.State.HandleShore();
             }

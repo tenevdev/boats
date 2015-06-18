@@ -15,6 +15,7 @@ namespace Assets.Scripts.Game.Components
             : base(passenger)
         {
             // TODO : Find counter object and increment
+            LevelManager.Instance.IncrementScore();
 
             this.Passenger.movementSpeed = PASSENGER_TRANSPORTED_SPEED;
 
