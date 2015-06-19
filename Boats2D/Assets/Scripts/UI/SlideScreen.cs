@@ -13,10 +13,11 @@ namespace Assets.Scripts.UI
 
         public void Awake()
         {
-            //if (!this.isHomeScreen)
-            //{
-            //    this.slideAnimator.Play("SlideOut" + ~this.slideInDirection);
-            //}
+            if (!this.isHomeScreen)
+            {
+                this.slideAnimator.CrossFade("SlideOut" + ~this.slideInDirection, 0, 0, 1);
+                // this.slideAnimator.Play("SlideOut" + ~this.slideInDirection);
+            }
         }
     }
 
