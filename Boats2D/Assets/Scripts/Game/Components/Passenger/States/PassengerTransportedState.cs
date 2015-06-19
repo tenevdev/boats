@@ -9,15 +9,13 @@ namespace Assets.Scripts.Game.Components
 {
     public class PassengerTransportedState : PassengerState
     {
-        private Vector2 PASSENGER_TRANSPORTED_SPEED = -Vector2.up;
-
         public PassengerTransportedState(Passenger passenger)
             : base(passenger)
         {
             // TODO : Find counter object and increment
             LevelManager.Instance.IncrementScore();
 
-            this.Passenger.movementSpeed = PASSENGER_TRANSPORTED_SPEED;
+            this.Passenger.movementSpeed = this.Passenger.direction;
 
             this.Passenger.animator.Play("Approach");
             this.Passenger.StartCoroutine(this.Move());

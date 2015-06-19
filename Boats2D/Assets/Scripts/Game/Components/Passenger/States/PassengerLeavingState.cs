@@ -9,13 +9,11 @@ namespace Assets.Scripts.Game.Components
 {
     public class PassengerLeavingState : PassengerState
     {
-        private Vector2 PASSENGER_LEAVING_SPEED = Vector2.up;
-
         public PassengerLeavingState(Passenger passenger)
             : base(passenger)
         {
             // Start leaving
-            this.Passenger.movementSpeed = PASSENGER_LEAVING_SPEED;
+            this.Passenger.movementSpeed = -this.Passenger.direction;
 
             this.Passenger.animator.Play("Leave");
             this.Passenger.StartCoroutine(this.Move());

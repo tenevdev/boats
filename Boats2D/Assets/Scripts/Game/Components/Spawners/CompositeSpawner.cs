@@ -14,17 +14,17 @@ namespace Assets.Scripts.Game.Components
 
         private int index = 0;
 
-        public override void Create()
+        public override UnityEngine.Object Create()
         {
             if (this.randomGeneration)
             {
                 // Determine creatable type and random position
                 index = UnityEngine.Random.Range(0, creatables.Count);
-                Instantiate(this.creatables[index], this.Position(), Quaternion.identity);
+                return Instantiate(this.creatables[index], this.Position(), Quaternion.identity);
             }
             else
             {
-                Instantiate(this.creatables[index], this.Position(), Quaternion.identity);
+                var creation = Instantiate(this.creatables[index], this.Position(), Quaternion.identity);
 
                 // Increment and reset index to maintain generation order
                 if (index == this.creatables.Count - 1)
@@ -35,6 +35,8 @@ namespace Assets.Scripts.Game.Components
                 {
                     index += 1;
                 }
+
+                return creation;
             }
         }
     }

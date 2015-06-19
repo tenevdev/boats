@@ -10,6 +10,6 @@ namespace Assets.Scripts.Game.Core
     interface ICreator
     {
         IEnumerator Run();
-        void Create();
+        UnityEngine.Object Create();
     }
 }

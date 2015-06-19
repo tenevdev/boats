@@ -12,10 +12,10 @@ namespace Assets.Scripts.Game.Components
     {
         public Creatable creatable;
 
-        public override void Create()
+        public override UnityEngine.Object Create()
         {
             Vector3 position = this.Position();
-            Instantiate(this.creatable, position, Quaternion.identity);
+            return Instantiate(this.creatable, position, Quaternion.identity);
         }
     }
 }

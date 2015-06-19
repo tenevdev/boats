@@ -9,11 +9,10 @@ namespace Assets.Scripts.Game.Components
 {
     public class PassengerApproachingState : PassengerState
     {
-        private Vector2 PASSENGER_APPROACHING_SPEED = -Vector2.up;
         public PassengerApproachingState(Passenger passenger) : base(passenger) 
         {
             // Start approaching
-            this.Passenger.movementSpeed = PASSENGER_APPROACHING_SPEED;
+            this.Passenger.movementSpeed = this.Passenger.direction;
 
             this.Passenger.animator.Play("Approach");
             this.Passenger.StartCoroutine(this.Move());
@@ -29,13 +28,18 @@ namespace Assets.Scripts.Game.Components
         internal override void HandleBoat(Boat boat)
         {
             // Get on board
-            this.Passenger.transform.position = Vector3.zero;
-            this.Passenger.transform.SetParent(boat.transform, false);
+            if (boat.passengerCount < boat.capacity)
+            {
+                boat.passengerCount += 1;
 
-            // Stop moving
-            this.Passenger.movementSpeed = Vector2.zero;
+                this.Passenger.transform.position = Vector3.zero;
+                this.Passenger.transform.SetParent(boat.transform, false);
 
-            this.Passenger.SetState(PassengerStates.OnBoat);
+                // Stop moving
+                this.Passenger.movementSpeed = Vector2.zero;
+
+                this.Passenger.SetState(PassengerStates.OnBoat);
+            }
         }
     }
 }

@@ -22,6 +22,8 @@ namespace Assets.Scripts.Game.Components
                 var shore = GameObject.FindWithTag(this.Passenger.destination);
                 Bounds bounds = shore.GetComponent<SpriteRenderer>().bounds;
 
+                this.Passenger.transform.parent.GetComponent<Boat>().passengerCount -= 1;
+
                 this.Passenger.transform.parent = null;
                 this.Passenger.transform.position = bounds.ClosestPoint(this.Passenger.transform.position);
                 this.Passenger.transform.rotation = Quaternion.identity;

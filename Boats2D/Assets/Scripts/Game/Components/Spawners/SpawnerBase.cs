@@ -27,7 +27,7 @@ namespace Assets.Scripts.Game.Components
             }
         }
 
-        public abstract void Create();
+        public abstract UnityEngine.Object Create();
 
         protected virtual Vector3 Position()
         {

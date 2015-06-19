@@ -49,9 +49,9 @@ namespace Assets.Scripts.Game.Components
         internal Animator animator;
 
         public Vector2 movementSpeed;
-        public float waitingTime;
-        public string destination = "BottomShore";
-        public string origin = "TopShore";
+        public string destination;
+        public string origin;
+        public Vector2 direction;
 
         public override void Start()
         {
