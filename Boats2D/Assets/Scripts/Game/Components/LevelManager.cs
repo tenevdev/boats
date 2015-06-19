@@ -26,6 +26,7 @@ namespace Assets.Scripts.Game.Components
 
         public int levelNumber;
         public int objective;
+        public int passengerWaitingTime;
 
         public void Start()
         {
@@ -34,7 +35,7 @@ namespace Assets.Scripts.Game.Components
 
         public void IncrementScore()
         {
-            this.score = +1;
+            this.score += 1;
             if (this.score == this.objective)
             {
                 this.Complete();

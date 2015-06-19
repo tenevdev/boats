@@ -17,7 +17,7 @@ namespace Assets.Scripts.Game.Components
             this.Passenger.StartCoroutine(Wait());
         }
 
-        internal override void HandleShore()
+        internal override void HandleShore(string shoreName)
         {
             // Do nothing
         }
@@ -25,15 +25,21 @@ namespace Assets.Scripts.Game.Components
         internal override void HandleBoat(Boat boat)
         {
             // Get on board
-            this.Passenger.transform.position = Vector3.zero;
-            this.Passenger.transform.SetParent(boat.transform, false);
+            if (boat.passengerCount < boat.capacity)
+            {
+                boat.passengerCount += 1;
 
-            this.Passenger.SetState(PassengerStates.OnBoat);
+                this.Passenger.transform.position = Vector3.zero;
+                this.Passenger.transform.SetParent(boat.transform, false);
+
+                this.Passenger.SetState(PassengerStates.OnBoat);
+            }
         }
 
         private IEnumerator Wait()
         {
-            yield return new WaitForSeconds(this.Passenger.waitingTime);
+            // yield return new WaitForSeconds(this.Passenger.waitingTime);
+            yield return new WaitForSeconds(LevelManager.Instance.passengerWaitingTime);
 
             // The passenger is still waiting
             if(this.Passenger.State == this)

@@ -9,9 +9,10 @@ namespace Assets.Scripts.Game.Components
 {
     public class Boat : Creatable
     {
-        private int passengerCount = 0;
+        public int passengerCount = 0;
         private Animator animator;
 
+        public int capacity = 1;
         public HitPointsBar hitPointsBar;
 
         public void Start()

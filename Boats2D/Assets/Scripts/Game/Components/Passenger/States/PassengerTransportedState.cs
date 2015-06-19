@@ -23,7 +23,7 @@ namespace Assets.Scripts.Game.Components
             this.Passenger.StartCoroutine(this.Move());
         }
 
-        internal override void HandleShore()
+        internal override void HandleShore(string shoreName)
         {
             // Do nothing
         }

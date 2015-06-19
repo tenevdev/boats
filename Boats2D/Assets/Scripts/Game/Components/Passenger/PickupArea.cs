@@ -31,7 +31,7 @@ namespace Assets.Scripts.Game.Components
             else if (collider.tag == this.passenger.destination)
             {
                 // The passenger is on a boat and the passenger can get off
-                this.passenger.State.HandleShore();
+                this.passenger.State.HandleShore(collider.tag);
             }
         }
     }

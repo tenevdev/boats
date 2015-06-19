@@ -14,7 +14,7 @@ namespace Assets.Scripts.Game.Components
             this.Passenger = passenger;
         }
 
-        internal abstract void HandleShore();
+        internal abstract void HandleShore(string shoreName);
         internal abstract void HandleBoat(Boat boat);
         internal virtual IEnumerator Move()
         {

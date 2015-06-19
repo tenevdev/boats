@@ -14,17 +14,20 @@ namespace Assets.Scripts.Game.Components
             this.Passenger.animator.Play("Stand");
         }
         
-        internal override void HandleShore()
+        internal override void HandleShore(string shoreName)
         {
             // Get off boat
-            var shore = GameObject.FindWithTag(this.Passenger.destination);
-            Bounds bounds = shore.GetComponent<SpriteRenderer>().bounds;
+            if (shoreName == this.Passenger.destination)
+            {
+                var shore = GameObject.FindWithTag(this.Passenger.destination);
+                Bounds bounds = shore.GetComponent<SpriteRenderer>().bounds;
 
-            this.Passenger.transform.parent = null;
-            this.Passenger.transform.position = bounds.ClosestPoint(this.Passenger.transform.position);
-            this.Passenger.transform.rotation = Quaternion.identity;
+                this.Passenger.transform.parent = null;
+                this.Passenger.transform.position = bounds.ClosestPoint(this.Passenger.transform.position);
+                this.Passenger.transform.rotation = Quaternion.identity;
 
-            this.Passenger.SetState(PassengerStates.Transported);
+                this.Passenger.SetState(PassengerStates.Transported);
+            }
 
             // Increment transported passengers count
         }

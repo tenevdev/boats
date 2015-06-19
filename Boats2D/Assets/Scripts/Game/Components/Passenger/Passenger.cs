@@ -69,7 +69,7 @@ namespace Assets.Scripts.Game.Components
             // Check if the passenger has reached a shore
             if (collider.tag == this.origin)
             {
-                this.State.HandleShore();
+                this.State.HandleShore(collider.tag);
             }
         }
 
