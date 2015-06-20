@@ -36,9 +36,19 @@ namespace Assets.Scripts.Game.Components
         public void IncrementScore()
         {
             this.score += 1;
+            OnScoreChanged();
             if (this.score == this.objective)
             {
                 this.Complete();
+            }
+        }
+
+        public event EventHandler ScoreChanged;
+        protected void OnScoreChanged()
+        {
+            if (this.ScoreChanged != null)
+            {
+                this.ScoreChanged(this, new EventArgs());
             }
         }
 
