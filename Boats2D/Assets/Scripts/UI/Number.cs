@@ -13,21 +13,18 @@ namespace Assets.Scripts.UI
 
         public void Start()
         {
-            int number = this.value, digit = 0, count = 0;
+            int number = this.value, digit = 0, count = (int)Math.Floor(Math.Log10(number + 1));
             while (number > 0)
             {
                 digit = number % 10;
 
                 DigitTile tile = Instantiate<DigitTile>(this.digitTile);
                 tile.transform.SetParent(this.transform, false);
-                tile.transform.Translate(new Vector3(5 * count, 0, 0));
+                tile.transform.Translate(new Vector3(5 * count--, 0, 0));
 
                 tile.Current = digit;
 
-
-                count += 1;
                 number /= 10;
-
             }
         }
     }
