@@ -15,7 +15,7 @@ namespace Assets.Scripts.Game.Components
         public int capacity = 1;
         public HitPointsBar hitPointsBar;
 
-        public void Start()
+        public override void Start()
         {
             base.Start();
 
