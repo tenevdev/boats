@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Game.Components
 {
@@ -31,6 +32,7 @@ namespace Assets.Scripts.Game.Components
         public int objective;
         public int passengerWaitingTime;
         public TimeController panel;
+        public Text panelTitle; 
 
         public void Start()
         {
@@ -38,7 +40,6 @@ namespace Assets.Scripts.Game.Components
             this.LevelComplete += this.Complete;
 
             this.state = LevelState.InProgress;
-            this.panel = GameObject.Find("Level Panel").GetComponent<TimeController>();
             this.panelAnimator = this.panel.GetComponent<Animator>();
 
             new WaitForSeconds(2);
@@ -71,7 +72,7 @@ namespace Assets.Scripts.Game.Components
         {
             PlayerPrefs.SetInt("LastLevel", this.levelNumber);
 
-            this.Pause();
+            this.Pause("LEVEL COMPLETE");
             this.state = LevelState.Complete;
         }
 
@@ -94,8 +95,9 @@ namespace Assets.Scripts.Game.Components
             }
         }
 
-        public void Pause()
+        public void Pause(string titleText)
         {
+            this.panelTitle.text = titleText;
             this.panelAnimator.Play("SlideDown");
         }
 
@@ -126,7 +128,7 @@ namespace Assets.Scripts.Game.Components
             if (this.boatCount == 0)
             {
                 this.state = LevelState.Failed;
-                this.Pause();
+                this.Pause("LEVEL FAILED");
             }
         }
     }
