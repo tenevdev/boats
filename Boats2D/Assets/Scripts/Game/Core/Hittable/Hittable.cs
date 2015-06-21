@@ -55,7 +55,11 @@ namespace Assets.Scripts.Game.Core
         {
             if (collision.collider.tag != "Wave")
             {
-                this.ReceiveHit(collision.gameObject.GetComponent<Hittable>());
+                Hittable hitter = collision.gameObject.GetComponent<Hittable>();
+                if (hitter != null)
+                {
+                    this.ReceiveHit(hitter);
+                }
             }
         }
 
