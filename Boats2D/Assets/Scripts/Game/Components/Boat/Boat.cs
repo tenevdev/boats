@@ -18,13 +18,16 @@ namespace Assets.Scripts.Game.Components
         public void Start()
         {
             base.Start();
+
             this.animator = this.GetComponent<Animator>();
             if (this.hitPointsBar == null)
             {
                 this.hitPointsBar = this.GetComponentInChildren<HitPointsBar>();
             }
 
-            // Increment passenger count
+            // Control boat count
+            LevelManager.Instance.boatCount += 1;
+            this.Dead += (s, e) => LevelManager.Instance.BoatLost();
 
             this.HitReceived += this.hitPointsBar.UpdateBar;
         }

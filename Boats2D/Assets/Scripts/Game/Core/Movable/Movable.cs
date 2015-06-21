@@ -15,7 +15,7 @@ namespace Assets.Scripts.Game.Core
 
         public void OnBecameInvisible()
         {
-            this.Destroy(this, new DeadEventArgs(DeadReason.OutOfScene));
+            this.OnDead(new DeadEventArgs(DeadReason.OutOfScene));
         }
 
         public void Destroy(Movable sender, DeadEventArgs args)

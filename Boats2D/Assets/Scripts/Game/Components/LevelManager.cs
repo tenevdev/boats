@@ -26,6 +26,7 @@ namespace Assets.Scripts.Game.Components
         private Animator panelAnimator;
         private LevelState state;
 
+        public int boatCount;
         public int levelNumber;
         public int objective;
         public int passengerWaitingTime;
@@ -49,9 +50,12 @@ namespace Assets.Scripts.Game.Components
             {
                 case LevelState.Complete:
                     // Play next level
+                    this.panel.ToggleTime();
                     Application.LoadLevel(LevelManager.Instance.levelNumber + 1);
                     break;
                 case LevelState.Failed:
+                    this.panel.ToggleTime();
+                    Application.LoadLevel(LevelManager.Instance.levelNumber);
                     break;
                 case LevelState.InProgress:
                     // Resume game
@@ -113,6 +117,16 @@ namespace Assets.Scripts.Game.Components
             if (this.LevelComplete != null)
             {
                 this.LevelComplete(this, new EventArgs());
+            }
+        }
+
+        internal void BoatLost()
+        {
+            this.boatCount -= 1;
+            if (this.boatCount == 0)
+            {
+                this.state = LevelState.Failed;
+                this.Pause();
             }
         }
     }
