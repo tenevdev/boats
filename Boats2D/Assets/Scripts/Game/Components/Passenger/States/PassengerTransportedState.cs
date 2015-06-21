@@ -13,7 +13,7 @@ namespace Assets.Scripts.Game.Components
             : base(passenger)
         {
             // TODO : Find counter object and increment
-            LevelManager.Instance.IncrementScore();
+            LevelManagerBase.Instance.IncrementScore();
 
             this.Passenger.movementSpeed = this.Passenger.direction;
 

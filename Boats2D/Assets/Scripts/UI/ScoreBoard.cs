@@ -22,7 +22,7 @@ namespace Assets.Scripts.UI
 
             this.scoreTiles.Add(tile);
 
-            LevelManager.Instance.ScoreChanged += this.Increment;
+            LevelManagerBase.Instance.ScoreChanged += this.Increment;
         }
 
         public void Increment(object level, EventArgs args)

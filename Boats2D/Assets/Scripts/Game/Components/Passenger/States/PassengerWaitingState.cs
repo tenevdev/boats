@@ -39,7 +39,7 @@ namespace Assets.Scripts.Game.Components
         private IEnumerator Wait()
         {
             // yield return new WaitForSeconds(this.Passenger.waitingTime);
-            yield return new WaitForSeconds(LevelManager.Instance.passengerWaitingTime);
+            yield return new WaitForSeconds(LevelManagerBase.Instance.passengerWaitingTime);
 
             // The passenger is still waiting
             if(this.Passenger.State == this)

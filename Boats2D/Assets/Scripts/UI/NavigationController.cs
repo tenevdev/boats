@@ -31,6 +31,11 @@ namespace Assets.Scripts.UI
             this.current = next;
         }
 
+        public void PlaySurvival()
+        {
+            Application.LoadLevel("Survival Level");
+        }
+
         private void SlideCamera()
         {
             StartCoroutine(this.cameraSlider.Slide(this.current.slideInDirection));

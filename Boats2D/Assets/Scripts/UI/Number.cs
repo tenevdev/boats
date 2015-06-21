@@ -14,7 +14,7 @@ namespace Assets.Scripts.UI
         public void Start()
         {
             int number = this.value, digit = 0, count = (int)Math.Floor(Math.Log10(number + 1));
-            while (number > 0)
+            while (number > 9)
             {
                 digit = number % 10;
 
@@ -26,6 +26,12 @@ namespace Assets.Scripts.UI
 
                 number /= 10;
             }
+            // Last digit
+            DigitTile lastTile = Instantiate<DigitTile>(this.digitTile);
+            lastTile.transform.SetParent(this.transform, false);
+            lastTile.transform.Translate(new Vector3(5 * count--, 0, 0));
+
+            lastTile.Current = number;
         }
     }
 }

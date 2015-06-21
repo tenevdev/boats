@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,56 +8,35 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Game.Components
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : LevelManagerBase
     {
-        private static LevelManager instance;
-
-        public static LevelManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = GameObject.FindObjectOfType<LevelManager>();
-                }
-                return instance;
-            }
-        }
-
-        private int score;
-        private Animator panelAnimator;
-        private LevelState state;
-
-        public int boatCount;
         public int levelNumber;
         public int objective;
-        public int passengerWaitingTime;
-        public TimeController panel;
-        public Text panelTitle; 
 
-        public void Start()
+        public void Awake()
         {
-            this.score = 0;
-            this.LevelComplete += this.Complete;
-
-            this.state = LevelState.InProgress;
-            this.panelAnimator = this.panel.GetComponent<Animator>();
-
-            new WaitForSeconds(2);
+            GameObject.Find("Objective").GetComponent<Number>().value = this.objective;
         }
 
-        public void Play()
+        public override void Start()
+        {
+            base.Start();
+
+            this.LevelComplete += this.Complete;
+            this.failedTitle = "LEVEL FAILED";
+        }
+
+        public override void Play()
         {
             switch (this.state)
             {
                 case LevelState.Complete:
                     // Play next level
                     this.panel.ToggleTime();
-                    Application.LoadLevel(LevelManager.Instance.levelNumber + 1);
+                    Application.LoadLevel(this.levelNumber + 1);
                     break;
                 case LevelState.Failed:
-                    this.panel.ToggleTime();
-                    Application.LoadLevel(LevelManager.Instance.levelNumber);
+                    this.Restart();
                     break;
                 case LevelState.InProgress:
                     // Resume game
@@ -76,41 +56,13 @@ namespace Assets.Scripts.Game.Components
             this.state = LevelState.Complete;
         }
 
-        public void IncrementScore()
+        public override void IncrementScore()
         {
-            this.score += 1;
-            OnScoreChanged();
+            base.IncrementScore();
             if (this.score == this.objective)
             {
                 this.OnLevelComplete();
             }
-        }
-
-        public event EventHandler ScoreChanged;
-        protected void OnScoreChanged()
-        {
-            if (this.ScoreChanged != null)
-            {
-                this.ScoreChanged(this, new EventArgs());
-            }
-        }
-
-        public void Pause(string titleText)
-        {
-            this.panelTitle.text = titleText;
-            this.panelAnimator.Play("SlideDown");
-        }
-
-        public void Restart()
-        {
-            this.panel.ToggleTime();
-            Application.LoadLevel(LevelManager.Instance.levelNumber);
-        }
-
-        public void Home()
-        {
-            this.panel.ToggleTime();
-            Application.LoadLevel("Home");
         }
 
         public event EventHandler LevelComplete;
@@ -121,22 +73,5 @@ namespace Assets.Scripts.Game.Components
                 this.LevelComplete(this, new EventArgs());
             }
         }
-
-        internal void BoatLost()
-        {
-            this.boatCount -= 1;
-            if (this.boatCount == 0)
-            {
-                this.state = LevelState.Failed;
-                this.Pause("LEVEL FAILED");
-            }
-        }
-    }
-
-    enum LevelState
-    {
-        InProgress = 0, 
-        Complete = 1,
-        Failed = 2
     }
 }
