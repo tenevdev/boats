@@ -8,7 +8,7 @@ namespace Assets.Scripts.Game.Components
 {
     public class LevelObjective : MonoBehaviour
     {
-        public void Start()
+        public void Awake()
         {
             this.GetComponent<Assets.Scripts.UI.Number>().value = LevelManager.Instance.objective;
         }

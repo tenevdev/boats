@@ -23,14 +23,52 @@ namespace Assets.Scripts.Game.Components
         }
 
         private int score;
+        private Animator panelAnimator;
+        private LevelState state;
 
         public int levelNumber;
         public int objective;
         public int passengerWaitingTime;
+        public TimeController panel;
 
         public void Start()
         {
             this.score = 0;
+            this.LevelComplete += this.Complete;
+
+            this.state = LevelState.InProgress;
+            this.panel = GameObject.Find("Level Panel").GetComponent<TimeController>();
+            this.panelAnimator = this.panel.GetComponent<Animator>();
+
+            new WaitForSeconds(2);
+        }
+
+        public void Play()
+        {
+            switch (this.state)
+            {
+                case LevelState.Complete:
+                    // Play next level
+                    Application.LoadLevel(LevelManager.Instance.levelNumber + 1);
+                    break;
+                case LevelState.Failed:
+                    break;
+                case LevelState.InProgress:
+                    // Resume game
+                    this.panel.ToggleTime();
+                    this.panelAnimator.Play("SlideUp");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Complete(object sender, EventArgs e)
+        {
+            PlayerPrefs.SetInt("LastLevel", this.levelNumber);
+
+            this.Pause();
+            this.state = LevelState.Complete;
         }
 
         public void IncrementScore()
@@ -39,7 +77,7 @@ namespace Assets.Scripts.Game.Components
             OnScoreChanged();
             if (this.score == this.objective)
             {
-                this.Complete();
+                this.OnLevelComplete();
             }
         }
 
@@ -54,18 +92,35 @@ namespace Assets.Scripts.Game.Components
 
         public void Pause()
         {
-            Time.timeScale = 0;
+            this.panelAnimator.Play("SlideDown");
         }
 
-        public void Resume()
+        public void Restart()
         {
-            Time.timeScale = 1;
+            this.panel.ToggleTime();
+            Application.LoadLevel(LevelManager.Instance.levelNumber);
         }
 
-        public void Complete()
+        public void Home()
         {
-            PlayerPrefs.SetInt("LastLevel", this.levelNumber);
+            this.panel.ToggleTime();
             Application.LoadLevel("Home");
         }
+
+        public event EventHandler LevelComplete;
+        protected void OnLevelComplete()
+        {
+            if (this.LevelComplete != null)
+            {
+                this.LevelComplete(this, new EventArgs());
+            }
+        }
+    }
+
+    enum LevelState
+    {
+        InProgress = 0, 
+        Complete = 1,
+        Failed = 2
     }
 }
