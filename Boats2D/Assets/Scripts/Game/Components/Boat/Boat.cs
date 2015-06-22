@@ -27,7 +27,11 @@ namespace Assets.Scripts.Game.Components
 
             // Control boat count
             LevelManagerBase.Instance.boatCount += 1;
-            this.Dead += (s, e) => LevelManagerBase.Instance.BoatLost();
+            this.Dead += (s, e) =>
+            {
+                if (LevelManagerBase.Instance != null)
+                    LevelManagerBase.Instance.BoatLost();
+            };
 
             this.HitReceived += this.hitPointsBar.UpdateBar;
         }

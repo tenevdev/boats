@@ -71,8 +71,11 @@ namespace Assets.Scripts.Game.Components
 
         public virtual void Pause(string panelTitle)
         {
-            this.panelTitle.text = panelTitle;
-            this.panelAnimator.Play("SlideDown");
+            if (!this.panelTitle.IsDestroyed())
+            {
+                this.panelTitle.text = panelTitle;
+                this.panelAnimator.Play("SlideDown");
+            }
         }
 
         public abstract void Play();

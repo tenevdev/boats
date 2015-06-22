@@ -10,12 +10,12 @@ namespace Assets.Scripts.UI
         public SlideScreen homeScreen;
         private SlideScreen current;
 
-        private CameraSlider cameraSlider;
+        // private CameraSlider cameraSlider;
 
         public void Start()
         {
             this.current = this.homeScreen;
-            this.cameraSlider = Camera.main.GetComponent<CameraSlider>();
+            // this.cameraSlider = Camera.main.GetComponent<CameraSlider>();
 
             // this.current.slideAnimator.Play("SlideIn" + this.current.slideInDirection);
         }
@@ -26,7 +26,7 @@ namespace Assets.Scripts.UI
             next.slideAnimator.Play("SlideIn" + next.slideInDirection);
 
             this.current.slideInDirection = ~next.slideInDirection;
-            SlideCamera();
+            // SlideCamera();
 
             this.current = next;
         }
@@ -36,9 +36,9 @@ namespace Assets.Scripts.UI
             Application.LoadLevel("Survival Level");
         }
 
-        private void SlideCamera()
-        {
-            StartCoroutine(this.cameraSlider.Slide(this.current.slideInDirection));
-        }
+        //private void SlideCamera()
+        //{
+        //    StartCoroutine(this.cameraSlider.Slide(this.current.slideInDirection));
+        //}
     }
 }

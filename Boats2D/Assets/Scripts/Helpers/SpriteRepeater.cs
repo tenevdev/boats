@@ -7,6 +7,7 @@ namespace Assets.Scripts.Helpers
     {
 
         SpriteRenderer sprite;
+        public int orderInLayer;
 
         void Awake()
         {
@@ -20,6 +21,8 @@ namespace Assets.Scripts.Helpers
             SpriteRenderer childSprite = childPrefab.AddComponent<SpriteRenderer>();
             childPrefab.transform.position = this.transform.position;
             childSprite.sprite = sprite.sprite;
+            childSprite.sortingLayerName = "Background";
+            childSprite.sortingOrder = this.orderInLayer;
 
             int xRepeats = Mathf.RoundToInt(this.transform.localScale.x);
             int yRepeats = Mathf.RoundToInt(this.transform.localScale.y);

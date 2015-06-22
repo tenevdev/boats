@@ -25,7 +25,7 @@ namespace Assets.Scripts.Game.Components
                 this.Passenger.transform.parent.GetComponent<Boat>().passengerCount -= 1;
 
                 this.Passenger.transform.parent = null;
-                this.Passenger.transform.position = bounds.ClosestPoint(this.Passenger.transform.position);
+                this.Passenger.transform.position = (Vector2)bounds.ClosestPoint(this.Passenger.transform.position) + this.Passenger.direction;
                 this.Passenger.transform.rotation = Quaternion.identity;
 
                 this.Passenger.SetState(PassengerStates.Transported);

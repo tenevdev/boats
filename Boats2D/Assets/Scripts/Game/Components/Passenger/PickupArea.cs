@@ -11,7 +11,7 @@ namespace Assets.Scripts.Game.Components
         private Passenger passenger;
         private bool boatDetected = false;
 
-        public void Start()
+        public void Awake()
         {
             Physics2D.IgnoreCollision(this.GetComponent<CircleCollider2D>(), GameObject.FindWithTag("River").GetComponent<BoxCollider2D>());
             this.passenger = this.GetComponentInParent<Passenger>();

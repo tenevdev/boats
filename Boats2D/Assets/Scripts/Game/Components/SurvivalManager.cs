@@ -17,6 +17,7 @@ namespace Assets.Scripts.Game.Components
         {
             this.highScore = PlayerPrefs.GetInt("HighScore", 0);
             GameObject.Find("Last High Score").GetComponent<Number>().value = this.highScore;
+            this.highScoreLabel.text = this.highScore.ToString();
         }
         public override void Start()
         {
